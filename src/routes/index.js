@@ -1,9 +1,10 @@
+const express = require("express");
+const teamsService = require("../services/teamsService");
+const teamsResult = require("../services/teamsResult");
 
-const express = require('express')
-const teamsService = require('../services/teamsService')
+const routes = express.Router();
 
-const routes = express.Router()
+routes.get("/", teamsService);
+routes.get("/results", teamsResult);
 
-routes.get('/', teamsService)
-
-module.exports = routes
+module.exports = routes;

@@ -40,26 +40,26 @@ async function teamsService(_, res) {
   ];
 
   const arrayTimes = [
-    // { name: "Palmeiras", code: "palmeiras-1693" },
-    // { name: "Fluminense", code: "fluminense-1666" },
-    // { name: "Botafogo", code: "botafogo-1792" },
-    // { name: "Paranaense", code: "paranaense-1862" },
-    // { name: "Cruzeiro", code: "cruzeiro-1794" },
-    // { name: "Fortaleza", code: "fortaleza-4831" },
-    // { name: "São Paulo", code: "sao-paulo-1677" },
-    // { name: "Atl. Mineiro", code: "atl-mineiro-1683" },
-    // { name: "Santos", code: "santos-1798" },
-    // { name: "Grêmio", code: "gremio-1670" },
-    // { name: "Internacional", code: "internacional-1799" },
-    // { name: "Flamengo", code: "flamengo-1802" },
-    // { name: "Bahia", code: "bahia-1795" },
-    // { name: "Vasco", code: "vasco-1790" },
-    // { name: "RB Bragantino", code: "rb-bragantino-4734" },
-    // { name: "Corinthians", code: "corinthians-1649" },
-    // { name: "Cuiabá", code: "cuiaba-2704" },
+    { name: "Palmeiras", code: "palmeiras-1693" },
+    { name: "Fluminense", code: "fluminense-1666" },
+    { name: "Botafogo", code: "botafogo-1792" },
+    { name: "Paranaense", code: "paranaense-1862" },
+    { name: "Cruzeiro", code: "cruzeiro-1794" },
+    { name: "Fortaleza", code: "fortaleza-4831" },
+    { name: "São Paulo", code: "sao-paulo-1677" },
+    { name: "Atl. Mineiro", code: "atl-mineiro-1683" },
+    { name: "Santos", code: "santos-1798" },
+    { name: "Grêmio", code: "gremio-1670" },
+    { name: "Internacional", code: "internacional-1799" },
+    { name: "Flamengo", code: "flamengo-1802" },
+    { name: "Bahia", code: "bahia-1795" },
+    { name: "Vasco", code: "vasco-1790" },
+    { name: "RB Bragantino", code: "rb-bragantino-4734" },
+    { name: "Corinthians", code: "corinthians-1649" },
+    { name: "Cuiabá", code: "cuiaba-2704" },
     { name: "Goiás", code: "goias-1863" },
-    // { name: "Coritiba", code: "coritiba-1796" },
-    // { name: "América MG", code: "america-mg-6618" },
+    { name: "Coritiba", code: "coritiba-1796" },
+    { name: "América MG", code: "america-mg-6618" },
   ];
 
   function formatedCards(val) {
@@ -79,7 +79,7 @@ async function teamsService(_, res) {
   }
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: myargs,
   });
 

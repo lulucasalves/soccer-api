@@ -40,26 +40,26 @@ async function teamsService(_, res) {
   ];
 
   const arrayTimes = [
-    { name: "Palmeiras", code: "palmeiras-1693" },
-    { name: "Fluminense", code: "fluminense-1666" },
-    { name: "Botafogo", code: "botafogo-1792" },
-    { name: "Paranaense", code: "paranaense-1862" },
-    { name: "Cruzeiro", code: "cruzeiro-1794" },
-    { name: "Fortaleza", code: "fortaleza-4831" },
-    { name: "São Paulo", code: "sao-paulo-1677" },
-    { name: "Atl. Mineiro", code: "atl-mineiro-1683" },
-    { name: "Santos", code: "santos-1798" },
-    { name: "Grêmio", code: "gremio-1670" },
-    { name: "Internacional", code: "internacional-1799" },
-    { name: "Flamengo", code: "flamengo-1802" },
-    { name: "Bahia", code: "bahia-1795" },
-    { name: "Vasco", code: "vasco-1790" },
-    { name: "RB Bragantino", code: "rb-bragantino-4734" },
-    { name: "Corinthians", code: "corinthians-1649" },
-    { name: "Cuiabá", code: "cuiaba-2704" },
-    { name: "Goias", code: "goias-1863" },
-    { name: "Coritiba", code: "coritiba-1796" },
-    { name: "América MG", code: "america-mg-6618" },
+    // { name: "Palmeiras", code: "palmeiras-1693" },
+    // { name: "Fluminense", code: "fluminense-1666" },
+    // { name: "Botafogo", code: "botafogo-1792" },
+    // { name: "Paranaense", code: "paranaense-1862" },
+    // { name: "Cruzeiro", code: "cruzeiro-1794" },
+    // { name: "Fortaleza", code: "fortaleza-4831" },
+    // { name: "São Paulo", code: "sao-paulo-1677" },
+    // { name: "Atl. Mineiro", code: "atl-mineiro-1683" },
+    // { name: "Santos", code: "santos-1798" },
+    // { name: "Grêmio", code: "gremio-1670" },
+    // { name: "Internacional", code: "internacional-1799" },
+    // { name: "Flamengo", code: "flamengo-1802" },
+    // { name: "Bahia", code: "bahia-1795" },
+    // { name: "Vasco", code: "vasco-1790" },
+    // { name: "RB Bragantino", code: "rb-bragantino-4734" },
+    // { name: "Corinthians", code: "corinthians-1649" },
+    // { name: "Cuiabá", code: "cuiaba-2704" },
+    { name: "Goiás", code: "goias-1863" },
+    // { name: "Coritiba", code: "coritiba-1796" },
+    // { name: "América MG", code: "america-mg-6618" },
   ];
 
   function formatedCards(val) {
@@ -122,15 +122,19 @@ async function teamsService(_, res) {
       ".match-cards-lists-appender__load-all-button-container .of-button"
     );
 
-    await page.click(
-      ".match-cards-lists-appender__load-all-button-container .of-button"
-    );
+    try {
+      await page.click(
+        ".match-cards-lists-appender__load-all-button-container .of-button"
+      );
+    } catch (err) {
+      console.log(err);
+    }
 
-    await page.waitForTimeout(9000);
+    await page.waitForTimeout(5000);
 
     const elements = await page.$$(".match-card");
 
-    for (let i = 0; i < elements.length; i++) {
+    for (let i = 0; i < 10; i++) {
       const value = await page.evaluate((element) => element.href, elements[i]);
 
       try {
@@ -139,17 +143,7 @@ async function teamsService(_, res) {
 
         await page1.goto(value);
 
-        const nomeHome = await page1.$eval(
-          ".MatchScoreTeam_home__tXAs0 .MatchScoreTeam_name__3KTX8",
-          (time) => time.textContent
-        );
-
-        const nomeAway = await page1.$eval(
-          ".MatchScoreTeam_away__vmme9 .MatchScoreTeam_name__3KTX8",
-          (time) => time.textContent
-        );
-
-        const id = `${nomeHome} X ${nomeAway}`;
+        const id = i + 1;
 
         const home = await page1.$eval(
           ".MatchScoreTeam_home__tXAs0 .MatchScoreTeam_name__3KTX8",
@@ -172,16 +166,34 @@ async function teamsService(_, res) {
         );
 
         if (home) {
-          golsfeitosHome.push({ id, value: golshome });
-          golssofridosHome.push({ id, value: golsout });
+          golsfeitosHome.push({
+            id,
+            value: parseInt(golshome),
+          });
+          golssofridosHome.push({
+            id,
+            value: parseInt(golsout),
+          });
         } else {
-          golsfeitosAway.push({ id, value: golsout });
-          golssofridosAway.push({ id, value: golshome });
+          golsfeitosAway.push({
+            id,
+            value: parseInt(golsout),
+          });
+          golssofridosAway.push({
+            id,
+            value: parseInt(golshome),
+          });
         }
 
-        await page1.click(".MatchEvents_matchEventsToggleButtonContent__Y4SYZ");
+        try {
+          await page1.click(
+            ".MatchEvents_matchEventsToggleButtonContent__Y4SYZ"
+          );
+        } catch (err) {
+          console.log(err);
+        }
 
-        await page1.waitForTimeout(2000);
+        await page1.waitForTimeout(1000);
 
         const dataVar = home
           ? ".MatchStatsEntry_homeValue__8LaFV"
@@ -316,7 +328,7 @@ async function teamsService(_, res) {
             value ===
               "https://image-service.onefootball.com/transform?w=24&h=24&dpr=2&image=https%253A%252F%252Fimages.onefootball.com%252Fcw%252Ficons%252Fpenalty-missed-light.svg"
           ) {
-            penaltyInGame.push(valueName);
+            penaltyInGame.push({ id, value: valueName });
           }
         }
 

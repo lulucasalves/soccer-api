@@ -40,26 +40,126 @@ async function teamsService(_, res) {
   ];
 
   const arrayTimes = [
-    { name: "Palmeiras", code: "palmeiras-1693" },
-    { name: "Fluminense", code: "fluminense-1666" },
-    { name: "Botafogo", code: "botafogo-1792" },
-    { name: "Paranaense", code: "paranaense-1862" },
-    { name: "Cruzeiro", code: "cruzeiro-1794" },
-    { name: "Fortaleza", code: "fortaleza-4831" },
-    { name: "São Paulo", code: "sao-paulo-1677" },
-    { name: "Atl. Mineiro", code: "atl-mineiro-1683" },
-    { name: "Santos", code: "santos-1798" },
-    { name: "Grêmio", code: "gremio-1670" },
-    { name: "Internacional", code: "internacional-1799" },
-    { name: "Flamengo", code: "flamengo-1802" },
-    { name: "Bahia", code: "bahia-1795" },
-    { name: "Vasco", code: "vasco-1790" },
-    { name: "RB Bragantino", code: "rb-bragantino-4734" },
-    { name: "Corinthians", code: "corinthians-1649" },
-    { name: "Cuiabá", code: "cuiaba-2704" },
-    { name: "Goiás", code: "goias-1863" },
-    { name: "Coritiba", code: "coritiba-1796" },
-    { name: "América MG", code: "america-mg-6618" },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1693.png&w=32&q=75",
+      name: "Palmeiras",
+      code: "palmeiras-1693",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1666.png&w=32&q=75",
+      name: "Fluminense",
+      code: "fluminense-1666",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1792.png&w=32&q=75",
+      name: "Botafogo",
+      code: "botafogo-1792",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1862.png&w=32&q=75",
+      name: "Paranaense",
+      code: "paranaense-1862",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1794.png&w=32&q=75",
+      name: "Cruzeiro",
+      code: "cruzeiro-1794",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F4831.png&w=32&q=75",
+      name: "Fortaleza",
+      code: "fortaleza-4831",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1677.png&w=32&q=75",
+      name: "São Paulo",
+      code: "sao-paulo-1677",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1683.png&w=32&q=75",
+      name: "Atl. Mineiro",
+      code: "atl-mineiro-1683",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1798.png&w=32&q=75",
+      name: "Santos",
+      code: "santos-1798",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1670.png&w=32&q=75",
+      name: "Grêmio",
+      code: "gremio-1670",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1799.png&w=32&q=75",
+      name: "Internacional",
+      code: "internacional-1799",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1802.png&w=32&q=75",
+      name: "Flamengo",
+      code: "flamengo-1802",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1795.png&w=32&q=75",
+      name: "Bahia",
+      code: "bahia-1795",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1790.png&w=32&q=75",
+      name: "Vasco",
+      code: "vasco-1790",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F4734.png&w=32&q=75",
+      name: "RB Bragantino",
+      code: "rb-bragantino-4734",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1649.png&w=32&q=75",
+      name: "Corinthians",
+      code: "corinthians-1649",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F2704.png&w=32&q=75",
+      name: "Cuiabá",
+      code: "cuiaba-2704",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1863.png&w=32&q=75",
+      name: "Goiás",
+      code: "goias-1863",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F1796.png&w=32&q=75",
+      name: "Coritiba",
+      code: "coritiba-1796",
+    },
+    {
+      escudo:
+        "https://soccer-analytics.vercel.app/_next/image?url=https%3A%2F%2Fimage-service.onefootball.com%2Ftransform%3Fw%3D82%26h%3D82%26dpr%3D2%26image%3Dhttps%25253A%25252F%25252Fimages.onefootball.com%25252Ficons%25252Fteams%25252F164%25252F6618.png&w=32&q=75",
+      name: "América MG",
+      code: "america-mg-6618",
+    },
   ];
 
   function formatedCards(val) {
@@ -79,7 +179,7 @@ async function teamsService(_, res) {
   }
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     args: myargs,
   });
 
@@ -134,7 +234,7 @@ async function teamsService(_, res) {
 
     const elements = await page.$$(".match-card");
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < elements.length; i++) {
       const value = await page.evaluate((element) => element.href, elements[i]);
 
       try {
@@ -146,7 +246,7 @@ async function teamsService(_, res) {
         const id = i + 1;
 
         const home = await page1.$eval(
-          ".MatchScoreTeam_home__tXAs0 .MatchScoreTeam_name__3KTX8",
+          ".MatchScoreTeam_home__c_BVm .MatchScoreTeam_name__KtOJo",
           (time, nometime) => {
             if (time.textContent === nometime) return true;
 
@@ -156,12 +256,12 @@ async function teamsService(_, res) {
         );
 
         const golshome = await page1.$eval(
-          ".MatchScore_scores__5J_7v span:nth-of-type(1)",
+          ".MatchScore_scores__UWw03 span:nth-of-type(1)",
           (gol) => gol.textContent
         );
 
         const golsout = await page1.$eval(
-          ".MatchScore_scores__5J_7v span:nth-of-type(3)",
+          ".MatchScore_scores__UWw03 span:nth-of-type(3)",
           (gol) => gol.textContent
         );
 
@@ -400,6 +500,7 @@ async function teamsService(_, res) {
 
     returnedTimes.push({
       clube: arrayTimes[num].name,
+      escudo: arrayTimes[num].escudo,
       casa: {
         cartoes: yellowCardsHome,
         gols_feitos: golsfeitosHome,

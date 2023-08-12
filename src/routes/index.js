@@ -19,9 +19,9 @@ routes.get("/cartola", async (req, res) => {
       (val) => val.status_id === 2 || val.status_id === 7
     ).length
   );
-  for (const player of request.data.atletas
-    .filter((val) => val.status_id === 2 || val.status_id === 7)
-    .slice(0, 10)) {
+  for (const player of request.data.atletas.filter(
+    (val) => val.status_id === 2 || val.status_id === 7
+  )) {
     try {
       console.log(numbe);
 

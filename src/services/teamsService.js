@@ -199,7 +199,7 @@ async function teamsService(_, res) {
   }
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     args: myargs,
   });
 
@@ -238,35 +238,31 @@ async function teamsService(_, res) {
       `https://onefootball.com/en/team/${arrayTimes[num].code}/results`
     );
 
-    await page.waitForSelector(
-      ".match-cards-lists-appender__load-all-button-container .of-button"
-    );
+    await page.waitForSelector(".ButtonShared_ghost__bhiU1");
 
     try {
-      await page.click(
-        ".match-cards-lists-appender__load-all-button-container .of-button"
-      );
+      await page.click(".ButtonShared_ghost__bhiU1");
     } catch (err) {
       console.log(err);
     }
 
     await page.waitForTimeout(5000);
 
-    const elements = await page.$$(".match-card");
+    const elements = await page.$$(".MatchCard_matchCard__iOv4G");
 
-    for (let i = 0; i < elements.length; i++) {
+    for (let i = 0; i < elements.slice(0, 30).length; i++) {
       const value = await page.evaluate((element) => element.href, elements[i]);
 
       try {
         const page1 = await browser.newPage();
         page1.setDefaultTimeout(timeout);
 
-        await page1.goto(value);
+        await page1.goto(`${value}`);
 
         const id = i + 1;
 
         const home = await page1.$eval(
-          ".MatchScoreTeam_home__c_BVm .MatchScoreTeam_name__KtOJo",
+          ".MatchScoreTeam_container__1X5t5 .MatchScoreTeam_name__zzQrD",
           (time, nometime) => {
             if (time.textContent === nometime) return true;
 
@@ -276,12 +272,12 @@ async function teamsService(_, res) {
         );
 
         const golshome = await page1.$eval(
-          ".MatchScore_scores__UWw03 span:nth-of-type(1)",
+          ".MatchScore_scores__Hnn5f span:nth-of-type(1)",
           (gol) => gol.textContent
         );
 
         const golsout = await page1.$eval(
-          ".MatchScore_scores__UWw03 span:nth-of-type(3)",
+          ".MatchScore_scores__Hnn5f span:nth-of-type(3)",
           (gol) => gol.textContent
         );
 
@@ -307,7 +303,7 @@ async function teamsService(_, res) {
 
         try {
           await page1.click(
-            ".MatchEvents_matchEventsToggleButtonContent__Y4SYZ"
+            ".MatchEvents_matchEventsToggleButtonContent__nrrER"
           );
         } catch (err) {
           console.log(err);
@@ -316,15 +312,15 @@ async function teamsService(_, res) {
         await page1.waitForTimeout(1000);
 
         const dataVar = home
-          ? ".MatchStatsEntry_homeValue__8LaFV"
-          : ".MatchStatsEntry_awayValue__AHQ0N";
+          ? ".MatchStatsEntry_homeValue__1MQNU"
+          : ".MatchStatsEntry_awayValue__rgzMD";
 
         const targetShootsTotalValues = await page1.$(
-          `.MatchStats_list__zQNqj .MatchStatsEntry_container__C3S4C:nth-of-type(2) ${dataVar}`
+          `.MatchStats_list__29Ej7 .MatchStatsEntry_container__bI_WW:nth-of-type(2) ${dataVar}`
         );
 
         const targetShootsValues = await page1.$(
-          `.MatchStats_list__zQNqj .MatchStatsEntry_container__C3S4C:nth-of-type(3) ${dataVar}`
+          `.MatchStats_list__29Ej7 .MatchStatsEntry_container__bI_WW:nth-of-type(3) ${dataVar}`
         );
 
         if (targetShootsTotalValues) {
@@ -366,15 +362,15 @@ async function teamsService(_, res) {
         }
 
         const dataVarA = home
-          ? ".MatchStatsEntry_awayValue__AHQ0N"
-          : ".MatchStatsEntry_homeValue__8LaFV";
+          ? ".MatchStatsEntry_homeValue__1MQNU"
+          : ".MatchStatsEntry_awayValue__rgzMD";
 
         const targetShootsTotalValuesA = await page1.$(
-          `.MatchStats_list__zQNqj .MatchStatsEntry_container__C3S4C:nth-of-type(2) ${dataVarA}`
+          `.MatchStats_list__29Ej7 .MatchStatsEntry_container__bI_WW:nth-of-type(2) ${dataVarA}`
         );
 
         const targetShootsValuesA = await page1.$(
-          `.MatchStats_list__zQNqj .MatchStatsEntry_container__C3S4C:nth-of-type(3) ${dataVarA}`
+          `.MatchStats_list__29Ej7 .MatchStatsEntry_container__bI_WW:nth-of-type(3) ${dataVarA}`
         );
 
         if (targetShootsTotalValuesA) {
@@ -418,14 +414,14 @@ async function teamsService(_, res) {
         const elementHanle = await page1.$$(
           `${
             home
-              ? ".MatchEvents_matchEventsItemHome__kLs_s"
-              : ".MatchEvents_matchEventsItemAway__TDngb"
-          } .MatchEvents_matchEventsItemBox__0hk6n`
+              ? ".MatchEvents_matchEventsItemHome__Epaxa"
+              : ".MatchEvents_matchEventsItemAway__vwWOY"
+          } .MatchEvents_matchEventsItemBox__aQS5H`
         );
 
         for (let a = 0; a < elementHanle.length; a++) {
           const divHandle = await elementHanle[a].$(
-            ".ImageWithSets_of-image__img__o1FHK "
+            ".ImageWithSets_of-image__img__pezo7  "
           );
 
           const value = await page1.evaluate(
@@ -434,7 +430,7 @@ async function teamsService(_, res) {
           );
 
           const divHandleName = await elementHanle[a].$(
-            ".MatchEventCard_matchEventsText__VQrp_ p"
+            ".MatchEventCard_matchEventsText__P1V6w p"
           );
 
           const valueName = await page1.evaluate(
@@ -455,17 +451,17 @@ async function teamsService(_, res) {
         const elementCard = await page1.$$(
           `${
             home
-              ? ".MatchEvents_matchEventsItemHome__kLs_s"
-              : ".MatchEvents_matchEventsItemAway__TDngb"
-          } .ImageWithSets_of-image__img__o1FHK`
+              ? ".MatchEvents_matchEventsItemHome__Epaxa"
+              : ".MatchEvents_matchEventsItemAway__vwWOY"
+          } .ImageWithSets_of-image__img__pezo7 `
         );
 
         const elementCardA = await page1.$$(
           `${
             home
-              ? ".MatchEvents_matchEventsItemAway__TDngb"
-              : ".MatchEvents_matchEventsItemHome__kLs_s"
-          } .ImageWithSets_of-image__img__o1FHK`
+              ? ".MatchEvents_matchEventsItemAway__vwWOY"
+              : ".MatchEvents_matchEventsItemHome__Epaxa"
+          } .ImageWithSets_of-image__img__pezo7 `
         );
 
         for (let a = 0; a < elementCard.length; a++) {
@@ -550,7 +546,6 @@ async function teamsService(_, res) {
       },
       ultimos_batedores_de_penalti: penaltyInGame,
     });
-
     await page.close();
   }
 

@@ -430,7 +430,7 @@ async function teamsService(_, res) {
           );
 
           const divHandleName = await elementHanle[a].$(
-            ".MatchEventCard_matchEventsText__P1V6w p"
+            ".MatchEventCard_matchEventsText__HTS3D p"
           );
 
           const valueName = await page1.evaluate(

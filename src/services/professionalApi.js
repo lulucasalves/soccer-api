@@ -215,7 +215,7 @@ async function professionalApi(req, res) {
     result.push({ time: time.nome, logo: time.logo, jogos });
   }
 
-  fs.writeFileSync("dados.json", JSON.stringify(result));
+  fs.writeFileSync("dados2.json", JSON.stringify(result));
 
   await browser.close();
 }

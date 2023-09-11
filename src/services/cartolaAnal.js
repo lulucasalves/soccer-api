@@ -1,6 +1,7 @@
 const axios = require("axios");
+const fs = require("fs");
 
-async function playersCartola(req, res) {
+async function playersCartola() {
   const request = await axios.get(
     "https://api.cartola.globo.com/atletas/mercado"
   );
@@ -43,17 +44,18 @@ async function playersCartola(req, res) {
     numbe++;
   }
 
-  console.log("aqui");
-
-  res.json({
-    ...request.data,
-    atletas: [
-      ...playersComplement,
-      ...request.data.atletas.filter(
-        (val) => val.status_id !== 2 && val.status_id !== 7
-      ),
-    ],
-  });
+  fs.writeFileSync(
+    "cartola.json",
+    JSON.stringify({
+      ...request.data,
+      atletas: [
+        ...playersComplement,
+        ...request.data.atletas.filter(
+          (val) => val.status_id !== 2 && val.status_id !== 7
+        ),
+      ],
+    })
+  );
 }
 
 module.exports = { playersCartola };

@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
+const fs = require("fs");
 
-async function teamsService(_, res) {
+async function teamsService() {
   const myargs = [
     "--autoplay-policy=user-gesture-required",
     "--disable-background-networking",
@@ -199,7 +200,7 @@ async function teamsService(_, res) {
   }
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: myargs,
   });
 
@@ -257,6 +258,9 @@ async function teamsService(_, res) {
         const page1 = await browser.newPage();
         page1.setDefaultTimeout(timeout);
 
+        console.log(
+          `Adquirindo dados do ${arrayTimes[num].name} - jogo ${i + 1}`
+        );
         await page1.goto(`${value}`);
 
         const id = i + 1;
@@ -301,6 +305,7 @@ async function teamsService(_, res) {
           });
         }
 
+        console.log("pegando gols");
         try {
           await page1.click(
             ".MatchEvents_matchEventsToggleButtonContent__nrrER"
@@ -410,6 +415,7 @@ async function teamsService(_, res) {
             });
           }
         }
+        console.log("pegando chutes");
 
         const elementHanle = await page1.$$(
           `${
@@ -507,6 +513,7 @@ async function teamsService(_, res) {
             }
           }
         }
+        console.log("pegando cartões");
 
         await page1.close();
       } catch (error) {
@@ -585,7 +592,12 @@ async function teamsService(_, res) {
 
   await browser.close();
 
-  res.json({ times: returnedTimes, proximos_jogos: nextGames });
+  fs.writeFileSync("prevVersion.json", {
+    times: returnedTimes,
+    proximos_jogos: nextGames,
+  });
+
+  // res.json({ times: returnedTimes, proximos_jogos: nextGames });
 }
 
 module.exports = teamsService;

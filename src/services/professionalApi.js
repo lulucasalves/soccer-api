@@ -4,6 +4,7 @@ const fs = require("fs");
 const { getStatistics } = require("../utils/getStatistics");
 const { getFormations } = require("../utils/getFormations");
 const { getEvents } = require("../utils/getEvents");
+const { nextGames } = require("../utils/nextGames");
 
 async function professionalApi(req, res) {
   let result = [];
@@ -16,6 +17,9 @@ async function professionalApi(req, res) {
   const page = await browser.newPage();
   page.setDefaultTimeout(timeout);
   await page.setUserAgent(userAgent);
+
+  console.log("Pegando jogos da próxima rodada");
+  const proximosJogos = await nextGames(page);
 
   await page.goto(
     "https://www.flashscore.com.br/futebol/brasil/serie-a/#/WGqehPkI/table/overall"
@@ -105,7 +109,7 @@ async function professionalApi(req, res) {
         (element) => element.textContent
       );
 
-      const homeGame = homeParticipant === time.nome;
+      const homeGame = homeParticipant.includes(time.nome);
 
       const adversario = homeGame ? awayParcipant : homeParticipant;
 
@@ -164,7 +168,7 @@ async function professionalApi(req, res) {
         menuItems.includes("Estatísticas")
       );
 
-      console.log(`Adquirindo formação dos times, jogo ${id}\n`);
+      console.log(`Adquirindo formação dos times, jogo ${id} - ${time.nome}\n`);
 
       const { formacaoCasa, formacaoFora } = await getFormations(
         id,
@@ -215,7 +219,10 @@ async function professionalApi(req, res) {
     result.push({ time: time.nome, logo: time.logo, jogos });
   }
 
-  fs.writeFileSync("dados2.json", JSON.stringify(result));
+  fs.writeFileSync(
+    "dados.json",
+    JSON.stringify({ times: result, proximos_jogos: proximosJogos })
+  );
 
   await browser.close();
 }

@@ -1,32 +1,34 @@
+const { vars } = require("../services/vars");
+
 async function getEvents(page) {
   try {
-    await page.waitForSelector(".smv__verticalSections");
+    await page.waitForSelector(vars.eventos_indentificador);
 
-    const eventosCasa = await page.evaluate(() => {
-      const sportName = document.querySelector(".smv__verticalSections");
+    const eventosCasa = await page.evaluate((vars) => {
+      const sportName = document.querySelector(vars.eventos_indentificador);
 
-      const homeEvents = sportName.querySelectorAll(
-        ".smv__participantRow.smv__homeParticipant"
-      );
+      const homeEvents = sportName.querySelectorAll(vars.lista_eventos_casa);
 
       const events = [];
       homeEvents.forEach((matchElement) => {
-        const goal = matchElement.querySelector(".smv__incidentHomeScore");
-        const cards = matchElement.querySelector(".card-ico");
-        const Var = matchElement.querySelector(".var");
+        const goal = matchElement.querySelector(vars.evento_gol_casa);
+        const cards = matchElement.querySelector(vars.evento_cartao);
+        const Var = matchElement.querySelector(vars.evento_gol_anulado);
 
         if (Var) {
-          const player = matchElement.querySelector(".smv__assist a");
+          const player = matchElement.querySelector(vars.evento_assistencia);
           events.push({
             tipo: "gol anulado",
             jogador: player.innerHTML,
           });
         } else if (goal) {
           const player = matchElement.querySelector(
-            ".smv__playerName div"
+            vars.evento_nome_jogador_envolvido
           ).innerHTML;
-          const hasAssist = matchElement.querySelector(".smv__assist a");
-          const contra = matchElement.querySelector(".smv__subIncident");
+          const hasAssist = matchElement.querySelector(vars.evento_assistencia);
+          const contra = matchElement.querySelector(
+            vars.evento_identificador_gol_contra
+          );
 
           events.push({
             tipo: "gol",
@@ -35,12 +37,16 @@ async function getEvents(page) {
             golContra: contra ? true : null,
           });
         } else if (cards) {
-          const yellowCard = matchElement.querySelector(".yellowCard-ico");
+          const yellowCard = matchElement.querySelector(
+            vars.evento_identificador_cartao_amarelo
+          );
           const cardType = yellowCard ? "Cartão Amarelo" : "Cartão Vermelho";
           const player = matchElement.querySelector(
-            ".smv__playerName div"
+            vars.evento_nome_jogador_envolvido
           ).innerHTML;
-          const incident = matchElement.querySelector(".smv__subIncident");
+          const incident = matchElement.querySelector(
+            vars.evento_identificador_gol_contra
+          );
 
           events.push({
             tipo: cardType,
@@ -51,33 +57,33 @@ async function getEvents(page) {
       });
 
       return events;
-    });
+    }, vars);
 
-    const eventosFora = await page.evaluate(() => {
-      const sportName = document.querySelector(".smv__verticalSections");
+    const eventosFora = await page.evaluate((vars) => {
+      const sportName = document.querySelector(vars.eventos_indentificador);
 
-      const awayEvents = sportName.querySelectorAll(
-        ".smv__participantRow.smv__awayParticipant"
-      );
+      const awayEvents = sportName.querySelectorAll(vars.lista_eventos_fora);
 
       const events = [];
       awayEvents.forEach((matchElement) => {
-        const goal = matchElement.querySelector(".smv__incidentAwayScore");
-        const cards = matchElement.querySelector(".card-ico");
-        const Var = matchElement.querySelector(".var");
+        const goal = matchElement.querySelector(vars.evento_gol_fora);
+        const cards = matchElement.querySelector(vars.evento_cartao);
+        const Var = matchElement.querySelector(vars.evento_gol_anulado);
 
         if (Var) {
-          const player = matchElement.querySelector(".smv__assist a");
+          const player = matchElement.querySelector(vars.evento_assistencia);
           events.push({
             tipo: "gol anulado",
             jogador: player.innerHTML,
           });
         } else if (goal) {
           const player = matchElement.querySelector(
-            ".smv__playerName div"
+            vars.evento_nome_jogador_envolvido
           ).innerHTML;
-          const hasAssist = matchElement.querySelector(".smv__assist a");
-          const contra = matchElement.querySelector(".smv__subIncident");
+          const hasAssist = matchElement.querySelector(vars.evento_assistencia);
+          const contra = matchElement.querySelector(
+            vars.evento_identificador_gol_contra
+          );
 
           events.push({
             tipo: "gol",
@@ -86,12 +92,16 @@ async function getEvents(page) {
             golContra: contra ? true : null,
           });
         } else if (cards) {
-          const yellowCard = matchElement.querySelector(".yellowCard-ico");
+          const yellowCard = matchElement.querySelector(
+            vars.evento_identificador_cartao_amarelo
+          );
           const cardType = yellowCard ? "Cartão Amarelo" : "Cartão Vermelho";
           const player = matchElement.querySelector(
-            ".smv__playerName div"
+            vars.evento_nome_jogador_envolvido
           ).innerHTML;
-          const incident = matchElement.querySelector(".smv__subIncident");
+          const incident = matchElement.querySelector(
+            vars.evento_identificador_gol_contra
+          );
 
           events.push({
             tipo: cardType,
@@ -102,7 +112,7 @@ async function getEvents(page) {
       });
 
       return events;
-    });
+    }, vars);
 
     return { eventosCasa, eventosFora };
   } catch {

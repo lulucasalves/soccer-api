@@ -1,20 +1,24 @@
+const { vars } = require("../services/vars");
+
 async function nextGames(page) {
   await page.goto(
     "https://www.flashscore.com.br/futebol/brasil/serie-a/calendario"
   );
 
-  await page.waitForSelector(".sportName");
+  await page.waitForSelector(vars.identificador_do_calendario);
 
-  const allTeams = await page.evaluate(() => {
+  const allTeams = await page.evaluate((vars) => {
     let round = false;
-    const tableCells = document.querySelectorAll(".event__match");
+    const tableCells = document.querySelectorAll(
+      vars.celula_calendario_partida
+    );
     let ids = [];
     let teams = [];
     tableCells.forEach((row) => {
       if (!round) {
         const id = row.getAttribute("id");
-        const teamHome = row.querySelector(".event__participant--home");
-        const teamAway = row.querySelector(".event__participant--away");
+        const teamHome = row.querySelector(vars.time_de_casa_calendario);
+        const teamAway = row.querySelector(vars.time_de_fora_calendario);
 
         if (
           !teams.includes(teamHome.innerHTML) &&
@@ -30,7 +34,7 @@ async function nextGames(page) {
     });
 
     return ids;
-  });
+  }, vars);
 
   let teams = [];
 
@@ -42,15 +46,15 @@ async function nextGames(page) {
       `https://www.flashscore.com.br/jogo/${id}/#/resumo-de-jogo`
     );
 
-    await page.waitForSelector(".mi__data");
+    await page.waitForSelector(vars.resumo_pre_jogo_identificador);
 
     const casa = await page.$eval(
-      ".duelParticipant__home .participant__participantName",
+      vars.nome_resumo_participante_casa,
       (element) => element.textContent
     );
 
     const fora = await page.$eval(
-      ".duelParticipant__away .participant__participantName",
+      vars.nome_resumo_participante_fora,
       (element) => element.textContent
     );
 
@@ -59,62 +63,14 @@ async function nextGames(page) {
 
     try {
       arbitro = await page.$eval(
-        ".mi__data .mi__item:nth-child(1) .mi__item__val",
+        vars.resumo_arbitro,
         (element) => element.textContent
       );
       estadio = await page.$eval(
-        ".mi__data .mi__item:nth-child(2) .mi__item__val",
+        vars.resumo_estadio,
         (element) => element.textContent
       );
     } catch {}
-
-    const lesionados = await page.evaluate(() => {
-      let playersOutHome = [];
-      let playerOutAway = [];
-
-      const scratches = document.querySelector(
-        ".lf__scratchesGroup .lf__scratches .lf__side:nth-child(1)"
-      );
-      try {
-        const allScratches = scratches.querySelectorAll(
-          ".lf__scratchParticipant"
-        );
-
-        allScratches.forEach((val) => {
-          const jogador = val.querySelector(".lf__participantName div");
-          const problem = val.querySelector(".lf__scratchLabel");
-
-          playersOutHome.push({
-            jogador: jogador.innerHTML,
-            motivo: problem.innerHTML,
-          });
-        });
-      } catch (err) {}
-
-      const scratches2 = document.querySelector(
-        ".lf__scratchesGroup .lf__scratches .lf__side:nth-child(2)"
-      );
-      try {
-        const allScratches2 = scratches2.querySelectorAll(
-          ".lf__scratchParticipant"
-        );
-
-        allScratches2.forEach((val) => {
-          const jogador = val.querySelector(".lf__participantName div");
-          const problem = val.querySelector(".lf__scratchLabel");
-
-          playerOutAway.push({
-            jogador: jogador.innerHTML,
-            motivo: problem.innerHTML,
-          });
-        });
-      } catch (err) {}
-
-      return {
-        casa: playersOutHome,
-        fora: playerOutAway,
-      };
-    });
 
     teams.push({
       casa,

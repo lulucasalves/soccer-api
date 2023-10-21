@@ -1,3 +1,5 @@
+const { vars } = require("../services/vars");
+
 async function getFormations(id, browser, active) {
   if (!active) return { formacaoCasa: null, formacaoFora: null };
 
@@ -8,11 +10,11 @@ async function getFormations(id, browser, active) {
       `https://www.flashscore.com.br/jogo/${id}/#/resumo-de-jogo/equipes`
     );
 
-    await page2.waitForSelector(".lf__header.section__title");
+    await page2.waitForSelector(vars.identificador_formacao);
 
-    const formacoes = await page2.evaluate(async () => {
-      const header = document.querySelector(".lf__header.section__title");
-      const headerItens = header.querySelectorAll(".lf__headerPart");
+    const formacoes = await page2.evaluate(async (vars) => {
+      const header = document.querySelector(vars.identificador_formacao);
+      const headerItens = header.querySelectorAll(vars.formacao_valor);
 
       const itensArray = [];
 
@@ -22,7 +24,7 @@ async function getFormations(id, browser, active) {
       });
 
       return { formacaoCasa: itensArray[0], formacaoFora: itensArray[1] };
-    });
+    }, vars);
 
     await page2.close();
 

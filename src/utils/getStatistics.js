@@ -1,3 +1,5 @@
+const { vars } = require("../services/vars");
+
 async function getStatistics(id, browser, active) {
   if (!active) return { casa: [], fora: [] };
 
@@ -8,23 +10,27 @@ async function getStatistics(id, browser, active) {
   );
   await page1.waitForTimeout(2000);
 
-  await page1.waitForSelector("#detail .section");
+  await page1.waitForSelector(vars.analise_de_jogo_identificador);
 
-  const estatisticas1 = await page1.evaluate(() => {
-    const sportName = document.querySelector(".section");
-    console.log("achou");
-
-    const events = sportName.querySelectorAll(".stat__row");
+  const estatisticas1 = await page1.evaluate((vars) => {
+    const sportName = document.querySelector(
+      vars.analise_de_jogo_identificador
+    );
+    const events = sportName.querySelectorAll(vars.estatistica_cards);
 
     const statisticsHome = [];
     const statisticsAway = [];
 
     events.forEach((matchElement) => {
-      const object = matchElement.querySelector(".stat__categoryName");
+      const object = matchElement.querySelector(vars.estatistica_card_nome);
 
       if (object) {
-        const home = matchElement.querySelector(".stat__homeValue");
-        const away = matchElement.querySelector(".stat__awayValue");
+        const home = matchElement.querySelector(
+          vars.estatistica_card_valor_casa
+        );
+        const away = matchElement.querySelector(
+          vars.estatistica_card_valor_fora
+        );
 
         if (!object.innerHTML.includes("Gols Esperados")) {
           statisticsHome.push({
@@ -42,7 +48,7 @@ async function getStatistics(id, browser, active) {
     });
 
     return { casa: statisticsHome, fora: statisticsAway };
-  });
+  }, vars);
   await page1.close();
 
   return await estatisticas1;

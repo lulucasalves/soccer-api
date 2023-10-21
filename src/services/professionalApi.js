@@ -5,12 +5,13 @@ const { getStatistics } = require("../utils/getStatistics");
 const { getFormations } = require("../utils/getFormations");
 const { getEvents } = require("../utils/getEvents");
 const { nextGames } = require("../utils/nextGames");
+const { vars } = require("./vars");
 
 async function professionalApi(req, res) {
   let result = [];
 
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     args: myargs,
   });
 
@@ -25,19 +26,21 @@ async function professionalApi(req, res) {
     "https://www.flashscore.com.br/futebol/brasil/serie-a/#/WGqehPkI/table/overall"
   );
 
-  await page.waitForSelector(".tableWrapper");
+  await page.waitForSelector(vars.identificador_tabela_brasileirao);
 
   console.log("Adicionando todos times do brasileirão série A\n");
-  const hrefList = await page.evaluate(() => {
-    const tableWrapper = document.querySelector(".tableWrapper");
+  const hrefList = await page.evaluate((vars) => {
+    const tableWrapper = document.querySelector(
+      vars.identificador_tabela_brasileirao
+    );
     const tableCells = tableWrapper.querySelectorAll(
-      ".tableCellParticipant__block"
+      vars.participante_brasileirao
     );
 
     // Extrair os hrefs dos elementos e armazená-los em uma lista
     const hrefs = [];
     tableCells.forEach((cell) => {
-      const link = cell.querySelector(".tableCellParticipant__image");
+      const link = cell.querySelector(vars.logo_participante_brasileirao);
       const img = link.querySelector("img");
 
       if (link) {
@@ -51,12 +54,12 @@ async function professionalApi(req, res) {
     });
 
     return hrefs;
-  });
+  }, vars);
   console.log("Todos times do brasileirão série A foram adicionados\n");
 
   await page.close();
 
-  for (const time of hrefList) {
+  for (const time of hrefList.splice(0, 1)) {
     let jogos = [];
     let NJogo = 0;
     const page = await browser.newPage();
@@ -66,11 +69,15 @@ async function professionalApi(req, res) {
 
     await page.goto(`https://www.flashscore.com.br${time.href}resultados`);
 
-    await page.waitForSelector(".sportName");
+    await page.waitForSelector(vars.identificador_resultados_time);
 
-    const idList = await page.evaluate(() => {
-      const sportName = document.querySelector(".sportName");
-      const matchElements = sportName.querySelectorAll(".event__match--static");
+    const idList = await page.evaluate((vars) => {
+      const sportName = document.querySelector(
+        vars.identificador_resultados_time
+      );
+      const matchElements = sportName.querySelectorAll(
+        vars.partida_resultados_time
+      );
 
       // Extrair os ids dos elementos e armazená-los em uma lista
       const ids = [];
@@ -82,13 +89,13 @@ async function professionalApi(req, res) {
       });
 
       return ids;
-    });
+    }, vars);
 
     page.close();
 
     console.log(`Todos jogos do ${timeNome} foram adicionados\n`);
 
-    for (const id of idList) {
+    for (const id of idList.splice(0, 1)) {
       const page = await browser.newPage();
 
       console.log(`Análisando jogo ${id}\n`);
@@ -97,15 +104,15 @@ async function professionalApi(req, res) {
         `https://www.flashscore.com.br/jogo/${id}/#/resumo-de-jogo/resumo-de-jogo`
       );
 
-      await page.waitForSelector("#detail .section");
+      await page.waitForSelector(vars.analise_de_jogo_identificador);
 
       const homeParticipant = await page.$eval(
-        ".duelParticipant__home .participant__participantName",
+        vars.nome_resumo_participante_casa,
         (element) => element.textContent
       );
 
       const awayParcipant = await page.$eval(
-        ".duelParticipant__away .participant__participantName",
+        vars.nome_resumo_participante_fora,
         (element) => element.textContent
       );
 
@@ -115,9 +122,9 @@ async function professionalApi(req, res) {
 
       NJogo += 1;
 
-      const resultado = await page.evaluate(() => {
+      const resultado = await page.evaluate((vars) => {
         const textElements = document.querySelectorAll(
-          ".detailScore__wrapper span"
+          vars.analise_resultados_jogo
         );
         const texts = [];
 
@@ -127,11 +134,11 @@ async function professionalApi(req, res) {
         }
 
         return texts;
-      });
+      }, vars);
 
-      const menuItems = await page.evaluate(async () => {
+      const menuItems = await page.evaluate(async (vars) => {
         try {
-          const header = document.querySelector(".filter__group");
+          const header = document.querySelector(vars.filtro_analise_jogo);
           const headerItens = header.querySelectorAll("button");
 
           const itensArray = [];
@@ -145,7 +152,7 @@ async function professionalApi(req, res) {
         } catch {
           return [];
         }
-      });
+      }, vars);
 
       const { eventosCasa, eventosFora } = await getEvents(page);
 
@@ -153,7 +160,7 @@ async function professionalApi(req, res) {
 
       try {
         arbitro = await page.$eval(
-          ".mi__data .mi__item:nth-of-type(1) .mi__item__val",
+          vars.resumo_arbitro,
           (element) => element.textContent
         );
       } catch {}

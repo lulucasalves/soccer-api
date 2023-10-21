@@ -28,8 +28,11 @@ async function transformData(rounds) {
     proximos_jogos: proximosJogos,
   };
 
-  console.log(analiseFunction(proximosJogos))
-  fs.writeFileSync("analise.json", JSON.stringify(analiseFunction(proximosJogos)));
+  analiseFunction(proximosJogos);
+  fs.writeFileSync(
+    "analise.json",
+    JSON.stringify(analiseFunction(proximosJogos))
+  );
 
   fs.writeFileSync("site.json", JSON.stringify(response));
 }

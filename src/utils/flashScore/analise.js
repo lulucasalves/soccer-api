@@ -11,15 +11,17 @@ function analiseFunction(jogos) {
       const golsSofridosTotais = gols.total.golsSofridos;
       const golsSofridosLocal = gols.casa.golsSofridos;
 
-      const chutesTotais =
-        estatisticas.total["Chutes fora"] +
-        estatisticas.total["Chutes bloqueados"];
-      const defesasTotais = estatisticas.total["Defesas do goleiro"];
+      const totalFora = estatisticas.total["Chutes fora"] ?? 0;
+      const totalBlock = estatisticas.total["Chutes bloqueados"] ?? 0;
 
-      const chutesLocal =
-        estatisticas.casa["Chutes fora"] +
-        estatisticas.casa["Chutes bloqueados"];
-      const defesasLocal = estatisticas.casa["Defesas do goleiro"];
+      const homeFora = estatisticas.casa["Chutes fora"] ?? 0;
+      const homeBlock = estatisticas.casa["Chutes bloqueados"] ?? 0;
+
+      const chutesTotais = totalFora + totalBlock;
+      const defesasTotais = estatisticas.total["Defesas do goleiro"] ?? 0;
+
+      const chutesLocal = homeFora + homeBlock;
+      const defesasLocal = estatisticas.casa["Defesas do goleiro"] ?? 0;
 
       return {
         time: jogo.timeCasa.time,
@@ -44,15 +46,19 @@ function analiseFunction(jogos) {
       const golsSofridosTotais = gols.total.golsSofridos;
       const golsSofridosLocal = gols.fora.golsSofridos;
 
-      const chutesTotais =
-        estatisticas.total["Chutes fora"] +
-        estatisticas.total["Chutes bloqueados"];
-      const defesasTotais = estatisticas.total["Defesas do goleiro"];
+      const totalFora = estatisticas.total["Chutes fora"] ?? 0;
+      const totalBlock = estatisticas.total["Chutes bloqueados"] ?? 0;
 
-      const chutesLocal =
-        estatisticas.fora["Chutes fora"] +
-        estatisticas.fora["Chutes bloqueados"];
-      const defesasLocal = estatisticas.fora["Defesas do goleiro"];
+      console.log(jogo.timeFora);
+
+      const awayFora = estatisticas.fora["Chutes fora"] ?? 0;
+      const awayBlock = estatisticas.fora["Chutes bloqueados"] ?? 0;
+
+      const chutesTotais = totalFora + totalBlock;
+      const defesasTotais = estatisticas.total["Defesas do goleiro"] ?? 0;
+
+      const chutesLocal = awayFora + awayBlock;
+      const defesasLocal = estatisticas.fora["Defesas do goleiro"] ?? 0;
 
       return {
         time: jogo.timeFora.time,

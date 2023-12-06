@@ -1,3 +1,5 @@
+const { pgJogadores } = require("./tools/pgJogadores");
+
 function analiseFunction(jogos) {
   let analise = [];
   for (const jogo of jogos) {
@@ -11,17 +13,19 @@ function analiseFunction(jogos) {
       const golsSofridosTotais = gols.total.golsSofridos;
       const golsSofridosLocal = gols.casa.golsSofridos;
 
-      const totalFora = estatisticas.total["Chutes fora"] ?? 0;
-      const totalBlock = estatisticas.total["Chutes bloqueados"] ?? 0;
+      const totalFora = estatisticas.total["Chutes no Gol"] ?? 0;
+      const totalBlock = estatisticas.total["Chutes Bloqueados"] ?? 0;
 
-      const homeFora = estatisticas.casa["Chutes fora"] ?? 0;
-      const homeBlock = estatisticas.casa["Chutes bloqueados"] ?? 0;
+      const homeFora = estatisticas.casa["Chutes no Gol"] ?? 0;
+      const homeBlock = estatisticas.casa["Chutes Bloqueados"] ?? 0;
 
       const chutesTotais = totalFora + totalBlock;
-      const defesasTotais = estatisticas.total["Defesas do goleiro"] ?? 0;
+      const defesasTotais = estatisticas.total["Defesas do Goleiro"] ?? 0;
 
       const chutesLocal = homeFora + homeBlock;
-      const defesasLocal = estatisticas.casa["Defesas do goleiro"] ?? 0;
+      const defesasLocal = estatisticas.casa["Defesas do Goleiro"] ?? 0;
+
+      const participacoes = pgJogadores(jogo.timeCasa.events.total);
 
       return {
         time: jogo.timeCasa.time,
@@ -33,6 +37,7 @@ function analiseFunction(jogos) {
         golsSofridosTotais,
         golsFeitosTotais,
         golsFeitosLocal,
+        participacoes,
       };
     };
 
@@ -46,19 +51,19 @@ function analiseFunction(jogos) {
       const golsSofridosTotais = gols.total.golsSofridos;
       const golsSofridosLocal = gols.fora.golsSofridos;
 
-      const totalFora = estatisticas.total["Chutes fora"] ?? 0;
-      const totalBlock = estatisticas.total["Chutes bloqueados"] ?? 0;
+      const totalFora = estatisticas.total["Chutes no Gol"] ?? 0;
+      const totalBlock = estatisticas.total["Chutes Bloqueados"] ?? 0;
 
-      console.log(jogo.timeFora);
-
-      const awayFora = estatisticas.fora["Chutes fora"] ?? 0;
-      const awayBlock = estatisticas.fora["Chutes bloqueados"] ?? 0;
+      const awayFora = estatisticas.fora["Chutes no Gol"] ?? 0;
+      const awayBlock = estatisticas.fora["Chutes Bloqueados"] ?? 0;
 
       const chutesTotais = totalFora + totalBlock;
-      const defesasTotais = estatisticas.total["Defesas do goleiro"] ?? 0;
+      const defesasTotais = estatisticas.total["Defesas do Goleiro"] ?? 0;
 
       const chutesLocal = awayFora + awayBlock;
-      const defesasLocal = estatisticas.fora["Defesas do goleiro"] ?? 0;
+      const defesasLocal = estatisticas.fora["Defesas do Goleiro"] ?? 0;
+
+      const participacoes = pgJogadores(jogo.timeFora.events.total);
 
       return {
         time: jogo.timeFora.time,
@@ -70,6 +75,7 @@ function analiseFunction(jogos) {
         golsSofridosTotais,
         golsFeitosTotais,
         golsFeitosLocal,
+        participacoes,
       };
     };
 
@@ -94,7 +100,7 @@ function analiseFunction(jogos) {
       chanceGolCasa,
       chanceDefesasCasa,
       chanceDefesasFora,
-      geral: chanceGolFora - chanceGolCasa,
+      arbitro: jogo.arbitro,
     });
   }
 

@@ -5,6 +5,7 @@ function proximosjogos(proximos_jogos, times, arbitros) {
   for (const jogo of proximos_jogos) {
     const timeCasa = times.filter((val) => val.time.includes(jogo.casa))[0];
     const timeFora = times.filter((val) => val.time.includes(jogo.fora))[0];
+
     const arbitroAtual = arbitros.filter(
       (val) =>
         val.nome.toLowerCase().replaceAll(" ", "") ===

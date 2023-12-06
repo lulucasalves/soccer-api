@@ -2,6 +2,7 @@ const { times, proximos_jogos } = require("../../dados.json");
 const { analiseFunction } = require("../utils/flashScore/analise");
 const { arbitrosFS } = require("../utils/flashScore/arbitros");
 const { estatisticasFS } = require("../utils/flashScore/estatisticas");
+const { eventsFS } = require("../utils/flashScore/events");
 const { formacoesFS } = require("../utils/flashScore/formacoes");
 const { golsFS } = require("../utils/flashScore/gols");
 const { proximosjogos } = require("../utils/flashScore/proximos_jogos");
@@ -14,13 +15,13 @@ async function transformData(rounds) {
   for (const team of times) {
     const { time, logo } = team;
 
+    let events = eventsFS(team, rounds);
     let estatisticas = estatisticasFS(team, rounds);
     let gols = golsFS(team, rounds);
     const formacoes = formacoesFS(team, rounds);
 
-    teamResponse.push({ time, logo, gols, formacoes, estatisticas });
+    teamResponse.push({ time, logo, gols, formacoes, estatisticas, events });
   }
-  // console.log(response.times[0].estatisticas);
   const proximosJogos = proximosjogos(proximos_jogos, teamResponse, arbitros);
   const response = {
     times: teamResponse,

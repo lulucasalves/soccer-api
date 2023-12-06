@@ -9,9 +9,10 @@ const { vars } = require("./vars");
 
 async function professionalApi(req, res) {
   let result = [];
+  const countTimes = 10;
 
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: myargs,
   });
 
@@ -59,7 +60,7 @@ async function professionalApi(req, res) {
 
   await page.close();
 
-  for (const time of hrefList.splice(0, 1)) {
+  for (const time of hrefList) {
     let jogos = [];
     let NJogo = 0;
     const page = await browser.newPage();
@@ -95,7 +96,7 @@ async function professionalApi(req, res) {
 
     console.log(`Todos jogos do ${timeNome} foram adicionados\n`);
 
-    for (const id of idList.splice(0, 1)) {
+    for (const id of idList) {
       const page = await browser.newPage();
 
       console.log(`Análisando jogo ${id}\n`);
@@ -183,7 +184,7 @@ async function professionalApi(req, res) {
         menuItems.includes("Formações")
       );
 
-      if (jogos.filter((val) => val.casa).length < 10 && homeGame) {
+      if (jogos.filter((val) => val.casa).length < countTimes && homeGame) {
         jogos.push({
           casa: homeGame,
           id,
@@ -201,7 +202,10 @@ async function professionalApi(req, res) {
           estatisticas: estatisticas.casa,
           arbitro,
         });
-      } else if (jogos.filter((val) => !val.casa).length < 10 && !homeGame) {
+      } else if (
+        jogos.filter((val) => !val.casa).length < countTimes &&
+        !homeGame
+      ) {
         jogos.push({
           casa: homeGame,
           id,

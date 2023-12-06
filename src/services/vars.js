@@ -20,11 +20,11 @@ const vars = {
   partida_resultados_time: ".event__match--static", // Card com informações de partidas
   analise_de_jogo_identificador: "#detail .section", // Identificador de analise de jogo
   analise_resultados_jogo: ".detailScore__wrapper span", // Onde fica o resultado da partida
-  filtro_analise_jogo: ".filter__group", // Filtro de análise de jogos
-  estatistica_cards: "._row_1gfjz_9", // Cards de estatisticas
-  estatistica_card_nome: "._categoryName_11si3_5", // Cards de estatisticas nome
-  estatistica_card_valor_casa: "._homeValue_v26p1_10", // Cards de estatisticas valor casa
-  estatistica_card_valor_fora: "._awayValue_v26p1_14", // Cards de estatisticas valor fora
+  filtro_analise_jogo: "._tabs_vicco_5", // Filtro de análise de jogos
+  estatistica_cards: "._row_lq1k0_9", // Cards de estatisticas
+  estatistica_card_nome: "._category_rbkfg_5 strong", // Cards de estatisticas nome
+  estatistica_card_valor_casa: "._homeValue_1efsh_10 strong", // Cards de estatisticas valor casa
+  estatistica_card_valor_fora: "._awayValue_1efsh_14 strong", // Cards de estatisticas valor fora
   identificador_formacao: ".lf__header.section__title", // Identificador de formação
   formacao_valor: ".lf__headerPart", // Valores das formações
   eventos_indentificador: ".smv__verticalSections", // Identificador de eventos

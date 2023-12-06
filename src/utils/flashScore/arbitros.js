@@ -10,12 +10,12 @@ function arbitrosFS(data, rounds) {
         const faltas =
           estatisticas.Faltas !== undefined ? estatisticas.Faltas : 0;
         const amarelos =
-          estatisticas["Cartões amarelos"] !== undefined
-            ? estatisticas["Cartões amarelos"]
+          estatisticas["Cartões Amarelos"] !== undefined
+            ? estatisticas["Cartões Amarelos"]
             : 0;
         const vermelhos =
-          estatisticas["Cartões vermelhos"] !== undefined
-            ? estatisticas["Cartões vermelhos"]
+          estatisticas["Cartões Vermelhos"] !== undefined
+            ? estatisticas["Cartões Vermelhos"]
             : 0;
 
         if (

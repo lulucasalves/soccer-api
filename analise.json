@@ -6,85 +6,235 @@
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 0.6,
-      "golsSofridosTotais": 0.6,
+      "golsSofridosLocal": 1,
+      "golsSofridosTotais": 1.4,
       "golsFeitosTotais": 0.4,
-      "golsFeitosLocal": 0.4
+      "golsFeitosLocal": 0.6,
+      "participacoes": [
+        { "jogador": "Everton Morelli", "totalParticipacoes": 1 },
+        {
+          "jogador": "Rodrigues Adelino dos Santos V.",
+          "totalParticipacoes": 1
+        }
+      ]
     },
     "fora": {
+      "time": "América-MG",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 2.2,
+      "golsSofridosTotais": 2.8,
+      "golsFeitosTotais": 0.8,
+      "golsFeitosLocal": 1,
+      "participacoes": [
+        { "jogador": "Emmanuel Martinez", "totalParticipacoes": 1 },
+        { "jogador": "Lucas Kal", "totalParticipacoes": 1 },
+        { "jogador": "Rodriguinho", "totalParticipacoes": 1 },
+        { "jogador": "Daniel Borges", "totalParticipacoes": 1 },
+        { "jogador": "Ricardo Silva", "totalParticipacoes": 1 },
+        { "jogador": "Renato Marques", "totalParticipacoes": 2 },
+        { "jogador": "Gonzalo Mastriani", "totalParticipacoes": 1 }
+      ]
+    },
+    "chanceGolFora": 1.05,
+    "chanceGolCasa": 1.5,
+    "chanceDefesasCasa": 0,
+    "chanceDefesasFora": 0,
+    "arbitro": {}
+  },
+  {
+    "casa": {
       "time": "Bahia",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 1.4,
-      "golsSofridosTotais": 1.8,
-      "golsFeitosTotais": 1.2,
-      "golsFeitosLocal": 0.8
-    },
-    "chanceGolFora": 0.8,
-    "chanceGolCasa": 1,
-    "chanceDefesasCasa": 0,
-    "chanceDefesasFora": 0,
-    "geral": -0.19999999999999996
-  },
-  {
-    "casa": {
-      "time": "Vasco",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
       "golsSofridosLocal": 1,
-      "golsSofridosTotais": 1.6,
-      "golsFeitosTotais": 2.4,
-      "golsFeitosLocal": 2.2
+      "golsSofridosTotais": 1.8,
+      "golsFeitosTotais": 1.6,
+      "golsFeitosLocal": 0.8,
+      "participacoes": [
+        { "jogador": "Luciano Juba", "totalParticipacoes": 1 },
+        { "jogador": "Thaciano", "totalParticipacoes": 1 },
+        { "jogador": "Cauly", "totalParticipacoes": 3 },
+        { "jogador": "Rezende", "totalParticipacoes": 1 },
+        { "jogador": "Ademir", "totalParticipacoes": 2 }
+      ]
     },
     "fora": {
-      "time": "São Paulo",
+      "time": "Atlético-MG",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 1.4,
-      "golsSofridosTotais": 1,
-      "golsFeitosTotais": 1.4,
-      "golsFeitosLocal": 1
+      "golsSofridosLocal": 0.6,
+      "golsSofridosTotais": 0.6,
+      "golsFeitosTotais": 2.2,
+      "golsFeitosLocal": 1.8,
+      "participacoes": [
+        { "jogador": "Paulinho", "totalParticipacoes": 4 },
+        { "jogador": "Pavón", "totalParticipacoes": 2 },
+        { "jogador": "Hulk", "totalParticipacoes": 6 },
+        { "jogador": "Alan Kardec", "totalParticipacoes": 1 },
+        { "jogador": "Edenílson", "totalParticipacoes": 1 },
+        { "jogador": "Rubens", "totalParticipacoes": 1 },
+        { "jogador": "Matías Zaracho", "totalParticipacoes": 1 },
+        { "jogador": "Guilherme Arana", "totalParticipacoes": 2 }
+      ]
     },
-    "chanceGolFora": 1.25,
-    "chanceGolCasa": 1.75,
+    "chanceGolFora": 1.7,
+    "chanceGolCasa": 0.9000000000000001,
     "chanceDefesasCasa": 0,
     "chanceDefesasFora": 0,
-    "geral": -0.5
+    "arbitro": {}
   },
   {
     "casa": {
+      "time": "Coritiba",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 1.2,
+      "golsSofridosTotais": 0.8,
+      "golsFeitosTotais": 1.2,
+      "golsFeitosLocal": 0.6,
+      "participacoes": [
+        { "jogador": "Natanael", "totalParticipacoes": 1 },
+        { "jogador": "Bruno Gomes", "totalParticipacoes": 2 },
+        { "jogador": "Victor Luís", "totalParticipacoes": 1 },
+        { "jogador": "Gomez S.", "totalParticipacoes": 1 },
+        { "jogador": "Slimani I.", "totalParticipacoes": 1 },
+        { "jogador": "Edu", "totalParticipacoes": 1 },
+        { "jogador": "Jesé", "totalParticipacoes": 1 },
+        { "jogador": "Marcelino Moreno", "totalParticipacoes": 1 },
+        { "jogador": "Robson", "totalParticipacoes": 2 }
+      ]
+    },
+    "fora": {
       "time": "Corinthians",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
       "golsSofridosLocal": 1.2,
-      "golsSofridosTotais": 1.8,
-      "golsFeitosTotais": 1.4,
-      "golsFeitosLocal": 1.4
+      "golsSofridosTotais": 2,
+      "golsFeitosTotais": 1.6,
+      "golsFeitosLocal": 1.8,
+      "participacoes": [
+        { "jogador": "Moscardo G.", "totalParticipacoes": 2 },
+        { "jogador": "Giuliano", "totalParticipacoes": 1 },
+        { "jogador": "Matheus Araújo", "totalParticipacoes": 1 },
+        { "jogador": "Lucas Veríssimo", "totalParticipacoes": 2 },
+        { "jogador": "Renato Augusto", "totalParticipacoes": 3 },
+        { "jogador": "Giovane", "totalParticipacoes": 1 },
+        { "jogador": "Angel Romero", "totalParticipacoes": 5 }
+      ]
+    },
+    "chanceGolFora": 1.35,
+    "chanceGolCasa": 1.25,
+    "chanceDefesasCasa": 0,
+    "chanceDefesasFora": 0,
+    "arbitro": {}
+  },
+  {
+    "casa": {
+      "time": "Cruzeiro",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 1.4,
+      "golsSofridosTotais": 0.6,
+      "golsFeitosTotais": 1,
+      "golsFeitosLocal": 1.4,
+      "participacoes": [
+        { "jogador": "Nikão", "totalParticipacoes": 1 },
+        { "jogador": "Bruno Rodrigues", "totalParticipacoes": 2 },
+        { "jogador": "Mateus Vital", "totalParticipacoes": 1 },
+        { "jogador": "Ian Luccas", "totalParticipacoes": 1 },
+        { "jogador": "Matheus Pereira", "totalParticipacoes": 1 },
+        { "jogador": "Robert V.", "totalParticipacoes": 1 },
+        { "jogador": "Arthur Gomes", "totalParticipacoes": 1 }
+      ]
     },
     "fora": {
-      "time": "Flamengo",
+      "time": "Palmeiras",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 2,
+      "golsSofridosTotais": 1,
+      "golsFeitosTotais": 2,
+      "golsFeitosLocal": 1.8,
+      "participacoes": [
+        { "jogador": "Zé Rafael", "totalParticipacoes": 3 },
+        { "jogador": "Joaquin Piquerez", "totalParticipacoes": 1 },
+        { "jogador": "Jaílson", "totalParticipacoes": 1 },
+        { "jogador": "Mayke", "totalParticipacoes": 1 },
+        { "jogador": "Murilo", "totalParticipacoes": 1 },
+        { "jogador": "Raphael Veiga", "totalParticipacoes": 2 },
+        { "jogador": "Vanderlan", "totalParticipacoes": 1 },
+        { "jogador": "Breno", "totalParticipacoes": 1 },
+        { "jogador": "José López", "totalParticipacoes": 2 },
+        { "jogador": "Endrick", "totalParticipacoes": 2 },
+        { "jogador": "Rony", "totalParticipacoes": 1 }
+      ]
+    },
+    "chanceGolFora": 1.45,
+    "chanceGolCasa": 1.35,
+    "chanceDefesasCasa": 0,
+    "chanceDefesasFora": 0,
+    "arbitro": {}
+  },
+  {
+    "casa": {
+      "time": "Cuiabá",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
       "golsSofridosLocal": 1.4,
       "golsSofridosTotais": 1,
-      "golsFeitosTotais": 0.4,
-      "golsFeitosLocal": 1.4
+      "golsFeitosTotais": 1.2,
+      "golsFeitosLocal": 0.6,
+      "participacoes": [
+        { "jogador": "Denílson", "totalParticipacoes": 1 },
+        { "jogador": "D. Lacerda", "totalParticipacoes": 1 },
+        { "jogador": "Wellington Silva", "totalParticipacoes": 1 },
+        { "jogador": "Deyverson", "totalParticipacoes": 1 },
+        { "jogador": "Pitta I.", "totalParticipacoes": 1 },
+        { "jogador": "Ronald", "totalParticipacoes": 1 }
+      ]
     },
-    "chanceGolFora": 1.2,
-    "chanceGolCasa": 1.2999999999999998,
+    "fora": {
+      "time": "Athletico-PR",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 1,
+      "golsSofridosTotais": 0.6,
+      "golsFeitosTotais": 1.2,
+      "golsFeitosLocal": 0.6,
+      "participacoes": [
+        { "jogador": "Vitor", "totalParticipacoes": 2 },
+        { "jogador": "Zapelli B.", "totalParticipacoes": 1 },
+        { "jogador": "Erick", "totalParticipacoes": 2 },
+        { "jogador": "Madson", "totalParticipacoes": 1 },
+        { "jogador": "Vitor Roque", "totalParticipacoes": 1 },
+        { "jogador": "Canobbio A.", "totalParticipacoes": 1 },
+        { "jogador": "Willian Bigode", "totalParticipacoes": 2 }
+      ]
+    },
+    "chanceGolFora": 1.0499999999999998,
+    "chanceGolCasa": 0.85,
     "chanceDefesasCasa": 0,
     "chanceDefesasFora": 0,
-    "geral": -0.09999999999999987
+    "arbitro": {}
   },
   {
     "casa": {
@@ -93,27 +243,45 @@
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 0.6,
-      "golsSofridosTotais": 2,
+      "golsSofridosLocal": 1.8,
+      "golsSofridosTotais": 0.6,
       "golsFeitosTotais": 1.4,
-      "golsFeitosLocal": 1.8
+      "golsFeitosLocal": 2.2,
+      "participacoes": [
+        { "jogador": "Diogo Barbosa", "totalParticipacoes": 1 },
+        { "jogador": "Martinelli", "totalParticipacoes": 2 },
+        { "jogador": "Lelê", "totalParticipacoes": 1 },
+        { "jogador": "Jhon Arias", "totalParticipacoes": 5 },
+        { "jogador": "John Kennedy", "totalParticipacoes": 1 },
+        { "jogador": "Germán Cano", "totalParticipacoes": 3 },
+        { "jogador": "Yony González", "totalParticipacoes": 1 }
+      ]
     },
     "fora": {
-      "time": "Botafogo",
+      "time": "Grêmio",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 0.8,
-      "golsSofridosTotais": 1.4,
-      "golsFeitosTotais": 0.6,
-      "golsFeitosLocal": 0.2
+      "golsSofridosLocal": 2.6,
+      "golsSofridosTotais": 1.6,
+      "golsFeitosTotais": 1.4,
+      "golsFeitosLocal": 2,
+      "participacoes": [
+        { "jogador": "Ribeiro N.", "totalParticipacoes": 1 },
+        { "jogador": "Luis Suárez", "totalParticipacoes": 5 },
+        { "jogador": "Felipe Carballo", "totalParticipacoes": 1 },
+        { "jogador": "Ferreira", "totalParticipacoes": 2 },
+        { "jogador": "Mathias Vilasanti", "totalParticipacoes": 1 },
+        { "jogador": "Franco Cristaldo", "totalParticipacoes": 1 },
+        { "jogador": "Everton Galdino", "totalParticipacoes": 1 }
+      ]
     },
-    "chanceGolFora": 0.8500000000000001,
-    "chanceGolCasa": 1.35,
+    "chanceGolFora": 1.45,
+    "chanceGolCasa": 1.9500000000000002,
     "chanceDefesasCasa": 0,
     "chanceDefesasFora": 0,
-    "geral": -0.5
+    "arbitro": {}
   },
   {
     "casa": {
@@ -123,67 +291,142 @@
       "defesasTotais": 0,
       "defesasLocal": 0,
       "golsSofridosLocal": 1.2,
-      "golsSofridosTotais": 1.8,
-      "golsFeitosTotais": 1.2,
-      "golsFeitosLocal": 1
+      "golsSofridosTotais": 0.8,
+      "golsFeitosTotais": 1,
+      "golsFeitosLocal": 2.4,
+      "participacoes": [
+        { "jogador": "Bustos F.", "totalParticipacoes": 1 },
+        { "jogador": "Wanderson", "totalParticipacoes": 2 },
+        { "jogador": "Maurício", "totalParticipacoes": 2 },
+        { "jogador": "Valencia E.", "totalParticipacoes": 1 },
+        { "jogador": "Pedro Henrique", "totalParticipacoes": 1 }
+      ]
     },
     "fora": {
-      "time": "Grêmio",
+      "time": "Botafogo",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 2,
-      "golsSofridosTotais": 1.4,
-      "golsFeitosTotais": 1.6,
-      "golsFeitosLocal": 1.2
+      "golsSofridosLocal": 1.4,
+      "golsSofridosTotais": 1.2,
+      "golsFeitosTotais": 1.2,
+      "golsFeitosLocal": 1.4,
+      "participacoes": [
+        { "jogador": "Carlos Eduardo", "totalParticipacoes": 2 },
+        { "jogador": "Tchê Tchê", "totalParticipacoes": 2 },
+        { "jogador": "Danilo", "totalParticipacoes": 2 },
+        { "jogador": "Victor Sá", "totalParticipacoes": 1 }
+      ]
     },
-    "chanceGolFora": 1.45,
-    "chanceGolCasa": 1.4,
+    "chanceGolFora": 1.15,
+    "chanceGolCasa": 1.5,
     "chanceDefesasCasa": 0,
     "chanceDefesasFora": 0,
-    "geral": 0.050000000000000044
+    "arbitro": {}
   },
   {
     "casa": {
-      "time": "Palmeiras",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
-      "golsSofridosLocal": 0.4,
-      "golsSofridosTotais": 1,
-      "golsFeitosTotais": 0.6,
-      "golsFeitosLocal": 0.8
-    },
-    "fora": {
       "time": "Santos",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 2,
-      "golsSofridosTotais": 1.8,
-      "golsFeitosTotais": 1.2,
-      "golsFeitosLocal": 0.4
+      "golsSofridosLocal": 1.4,
+      "golsSofridosTotais": 1.4,
+      "golsFeitosTotais": 0.4,
+      "golsFeitosLocal": 0.6,
+      "participacoes": [
+        { "jogador": "Soteldo Y.", "totalParticipacoes": 1 },
+        { "jogador": "Joaquim", "totalParticipacoes": 1 },
+        { "jogador": "Messias", "totalParticipacoes": 1 },
+        { "jogador": "Furch J.", "totalParticipacoes": 1 }
+      ]
     },
-    "chanceGolFora": 0.75,
-    "chanceGolCasa": 1.2999999999999998,
-    "chanceDefesasCasa": 0,
-    "chanceDefesasFora": 0,
-    "geral": -0.5499999999999998
-  },
-  {
-    "casa": {
-      "time": "Athletico-PR",
+    "fora": {
+      "time": "Fortaleza",
       "chutesLocal": 0,
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 1,
+      "golsSofridosLocal": 1.8,
       "golsSofridosTotais": 1.2,
-      "golsFeitosTotais": 1.6,
-      "golsFeitosLocal": 1.8
+      "golsFeitosTotais": 1.4,
+      "golsFeitosLocal": 1,
+      "participacoes": [
+        { "jogador": "Guilherme", "totalParticipacoes": 3 },
+        { "jogador": "Thiago Galhardo", "totalParticipacoes": 3 },
+        { "jogador": "Calebe", "totalParticipacoes": 6 },
+        { "jogador": "Yago Pikachu", "totalParticipacoes": 2 }
+      ]
+    },
+    "chanceGolFora": 1.2999999999999998,
+    "chanceGolCasa": 1,
+    "chanceDefesasCasa": 0,
+    "chanceDefesasFora": 0,
+    "arbitro": {}
+  },
+  {
+    "casa": {
+      "time": "São Paulo",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 0.2,
+      "golsSofridosTotais": 0.6,
+      "golsFeitosTotais": 0.4,
+      "golsFeitosLocal": 1.4,
+      "participacoes": [{ "jogador": "Caio Paulista", "totalParticipacoes": 1 }]
+    },
+    "fora": {
+      "time": "Flamengo",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 0.8,
+      "golsSofridosTotais": 1,
+      "golsFeitosTotais": 1.4,
+      "golsFeitosLocal": 2,
+      "participacoes": [
+        { "jogador": "Gérson", "totalParticipacoes": 1 },
+        { "jogador": "De Arrascaeta", "totalParticipacoes": 3 },
+        { "jogador": "Ayrton Lucas", "totalParticipacoes": 1 },
+        { "jogador": "Bruno Henrique", "totalParticipacoes": 1 },
+        { "jogador": "Everton", "totalParticipacoes": 2 },
+        { "jogador": "Pulgar", "totalParticipacoes": 2 },
+        { "jogador": "Luiz Araújo", "totalParticipacoes": 1 },
+        { "jogador": "Pedro", "totalParticipacoes": 2 },
+        { "jogador": "Éverton Ribeiro", "totalParticipacoes": 1 }
+      ]
+    },
+    "chanceGolFora": 1.05,
+    "chanceGolCasa": 0.8999999999999999,
+    "chanceDefesasCasa": 0,
+    "chanceDefesasFora": 0,
+    "arbitro": {}
+  },
+  {
+    "casa": {
+      "time": "Vasco",
+      "chutesLocal": 0,
+      "chutesTotais": 0,
+      "defesasTotais": 0,
+      "defesasLocal": 0,
+      "golsSofridosLocal": 1.4,
+      "golsSofridosTotais": 1.6,
+      "golsFeitosTotais": 1.2,
+      "golsFeitosLocal": 1.4,
+      "participacoes": [
+        { "jogador": "Lucas Piton", "totalParticipacoes": 1 },
+        { "jogador": "Puma Rodriguez", "totalParticipacoes": 3 },
+        { "jogador": "Rossi", "totalParticipacoes": 1 },
+        { "jogador": "Ferreira S.", "totalParticipacoes": 1 },
+        { "jogador": "Gabriel Pec", "totalParticipacoes": 2 },
+        { "jogador": "Vegetti P.", "totalParticipacoes": 2 },
+        { "jogador": "Payet D.", "totalParticipacoes": 1 }
+      ]
     },
     "fora": {
       "time": "Red Bull Bragantino",
@@ -191,102 +434,21 @@
       "chutesTotais": 0,
       "defesasTotais": 0,
       "defesasLocal": 0,
-      "golsSofridosLocal": 1.4,
-      "golsSofridosTotais": 0.6,
-      "golsFeitosTotais": 1.6,
-      "golsFeitosLocal": 1
-    },
-    "chanceGolFora": 1.2000000000000002,
-    "chanceGolCasa": 1.35,
-    "chanceDefesasCasa": 0,
-    "chanceDefesasFora": 0,
-    "geral": -0.1499999999999999
-  },
-  {
-    "casa": {
-      "time": "Atlético-MG",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
-      "golsSofridosLocal": 0.2,
-      "golsSofridosTotais": 0.2,
-      "golsFeitosTotais": 1.4,
-      "golsFeitosLocal": 1
-    },
-    "fora": {
-      "time": "Coritiba",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
-      "golsSofridosLocal": 3.4,
-      "golsSofridosTotais": 2.8,
-      "golsFeitosTotais": 1.4,
-      "golsFeitosLocal": 1
-    },
-    "chanceGolFora": 0.7,
-    "chanceGolCasa": 2.15,
-    "chanceDefesasCasa": 0,
-    "chanceDefesasFora": 0,
-    "geral": -1.45
-  },
-  {
-    "casa": {
-      "time": "Fortaleza",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
       "golsSofridosLocal": 0.8,
-      "golsSofridosTotais": 0.8,
-      "golsFeitosTotais": 1.6,
-      "golsFeitosLocal": 2
-    },
-    "fora": {
-      "time": "América-MG",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
-      "golsSofridosLocal": 2.2,
       "golsSofridosTotais": 1.2,
-      "golsFeitosTotais": 1,
-      "golsFeitosLocal": 1.8
-    },
-    "chanceGolFora": 1.1,
-    "chanceGolCasa": 1.75,
-    "chanceDefesasCasa": 0,
-    "chanceDefesasFora": 0,
-    "geral": -0.6499999999999999
-  },
-  {
-    "casa": {
-      "time": "Cuiabá",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
-      "golsSofridosLocal": 1,
-      "golsSofridosTotais": 1.4,
-      "golsFeitosTotais": 1,
-      "golsFeitosLocal": 2
-    },
-    "fora": {
-      "time": "Cruzeiro",
-      "chutesLocal": 0,
-      "chutesTotais": 0,
-      "defesasTotais": 0,
-      "defesasLocal": 0,
-      "golsSofridosLocal": 1.6,
-      "golsSofridosTotais": 1,
       "golsFeitosTotais": 0.8,
-      "golsFeitosLocal": 1.2
+      "golsFeitosLocal": 1,
+      "participacoes": [
+        { "jogador": "Eduardo", "totalParticipacoes": 2 },
+        { "jogador": "Ramires", "totalParticipacoes": 1 },
+        { "jogador": "Léo Ortiz", "totalParticipacoes": 1 },
+        { "jogador": "Borbas T.", "totalParticipacoes": 2 }
+      ]
     },
-    "chanceGolFora": 1.1,
-    "chanceGolCasa": 1.4,
+    "chanceGolFora": 1.2,
+    "chanceGolCasa": 1.15,
     "chanceDefesasCasa": 0,
     "chanceDefesasFora": 0,
-    "geral": -0.2999999999999998
+    "arbitro": {}
   }
 ]

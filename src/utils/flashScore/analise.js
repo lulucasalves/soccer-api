@@ -38,6 +38,7 @@ function analiseFunction(jogos) {
         golsFeitosTotais,
         golsFeitosLocal,
         participacoes,
+        jogosSemSofrerGol: jogo.timeCasa.jogosSemSofrer,
       };
     };
 
@@ -76,6 +77,7 @@ function analiseFunction(jogos) {
         golsFeitosTotais,
         golsFeitosLocal,
         participacoes,
+        jogosSemSofrerGol: jogo.timeFora.jogosSemSofrer,
       };
     };
 
@@ -89,6 +91,20 @@ function analiseFunction(jogos) {
         (fora().golsSofridosLocal + fora().golsSofridosTotais) / 2) /
       2;
 
+    const chanceGolForaLocal =
+      (fora().golsFeitosLocal + casa().golsSofridosLocal) / 2;
+
+    const chanceGolCasaLocal =
+      (casa().golsFeitosLocal + fora().golsSofridosLocal) / 2;
+
+    const diferenca = chanceGolFora - chanceGolCasa;
+
+    const diferencaChance = diferenca < 0 ? -diferenca : diferenca;
+
+    const diferencaLocal = chanceGolForaLocal - chanceGolCasaLocal;
+
+    const diferencaLocalChance = diferencaLocal < 0 ? -diferencaLocal : diferencaLocal;
+
     const chanceDefesasCasa = (casa().defesasLocal + casa().defesasTotais) / 2;
 
     const chanceDefesasFora = (fora().defesasLocal + fora().defesasTotais) / 2;
@@ -98,13 +114,36 @@ function analiseFunction(jogos) {
       fora: fora(),
       chanceGolFora,
       chanceGolCasa,
+      chanceGolForaLocal,
+      chanceGolCasaLocal,
       chanceDefesasCasa,
       chanceDefesasFora,
+      diferencaLocalChance,
       arbitro: jogo.arbitro,
+      diferencaChance,
     });
   }
 
-  return analise;
+  let maxDiferenca = 0;
+
+  for (const anal of analise) {
+    maxDiferenca += anal.diferencaChance;
+  }
+  let mediaDiferenca = maxDiferenca / analise.length;
+
+  analiseIndicator = [];
+
+  for (const anal of analise) {
+    if (anal.diferencaChance > mediaDiferenca) {
+      analiseIndicator.push({ ...anal, indicative: true });
+    } else {
+      analiseIndicator.push({ ...anal, indicative: false });
+    }
+  }
+
+  let analiseComMedia = { analiseIndicator, mediaDiferenca };
+
+  return analiseComMedia;
 }
 
 module.exports = { analiseFunction };

@@ -2,7 +2,7 @@ function golsFS(team, rounds) {
   let golsCasa = { golsFeitos: 0, golsSofridos: 0, numero_jogos: 0 };
   let golsFora = { golsFeitos: 0, golsSofridos: 0, numero_jogos: 0 };
   let golsTotal = { golsFeitos: 0, golsSofridos: 0, numero_jogos: 0 };
-
+  let jogosSemSofrer = 0;
   let jogosCasa = 0;
   let jogosFora = 0;
   const { jogos } = team;
@@ -35,11 +35,15 @@ function golsFS(team, rounds) {
           golsSofridos: golsTotal.golsSofridos + jogo.golsSofridos,
           numero_jogos: golsTotal.numero_jogos + 1,
         };
+
+        if (jogo.golsSofridos === 0 && jogo.jogo <= 5) {
+          jogosSemSofrer++;
+        }
       }
     }
   }
 
-  return { casa: golsCasa, fora: golsFora, total: golsTotal };
+  return { casa: golsCasa, fora: golsFora, total: golsTotal, jogosSemSofrer };
 }
 
 module.exports = { golsFS };

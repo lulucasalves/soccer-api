@@ -1,5 +1,5 @@
 function calcularMedias(objeto) {
-  const novoObjeto = {};
+  let novoObjeto = {}
 
   for (const chave in objeto) {
     if (objeto.hasOwnProperty(chave)) {

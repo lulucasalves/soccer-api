@@ -14,12 +14,14 @@ function proximosjogos(proximos_jogos, times, arbitros) {
 
     const mediaFora = {
       ...timeFora,
+      jogosSemSofrer: timeFora.gols.jogosSemSofrer,
       gols: calcularMedias(timeFora.gols),
       estatisticas: calcularMedias(timeFora.estatisticas),
     };
 
     const mediaCasa = {
       ...timeCasa,
+      jogosSemSofrer: timeCasa.gols.jogosSemSofrer,
       gols: calcularMedias(timeCasa.gols),
       estatisticas: calcularMedias(timeCasa.estatisticas),
     };

@@ -6,67 +6,21 @@ const teamsService = require("./services/teamsService");
 const { transformData } = require("./services/transformData");
 const { test } = require("./services/test");
 const { verify } = require("./utils/verification");
+const { searchedData } = require("./services/searchedData");
+const { analitics2013 } = require("./utils/2013anal/analitics2013");
 
 require("dotenv/config");
-/*
-"agustincanobbio",
-  "julimar",
-  "pablo",
-  "tomascuello",
-  "pedro",
-  "evertonsoares",
-  "luizaraujo",
-  "paulinho",
-  "hulk",
-  "juanmartinlucero",
-  "marinho",
-  "tiquinhosoares",
-  "luizhenrique",
-  "juniorsantos",
-  */
-/*
-   "nicolasdelacruz",
-  "fernandinho",
-  "erick",
-  "danilobarbosa",
-  "tomaspochettino",
-  "tchetche",
-  "yagopikachu",
-  "josewelison",
-  "otavio",
-  "erickpulgar",
-  "alanfranco",
-  "hercules",
-  */
 
-/*
-  "leonardogodoy",
-  "lucasesquivel",
-  "guilhermearana",
-  "mateoponte",
-  "hugo",
-  "ayrtonlucas",
-  "guillermovarela",
-  "brunopacheco",
-  "guilhermetinga",
-  */
-
-/*
-  "jemerson",
-  "felixtorrescaicedo",
-  "kaiquerocha",
-  "gustavohenrique",
-  "emanuelbritez",
-  "titi",
-   */
-const jogadores = [];
+const positions = ['LB'];
+const times = [];
 
 const port = process.env.PORT || 5000;
 (async () => {
   // await verify();
-  //await professionalApi();
-  //await players(10);
-  await transformData(10, jogadores, 'pontuacao');
+  // await professionalApi();
+  // await players(6);
+  //await transformData(10, positions, times, "points");
+  analitics2013()
 })();
 app.listen(port, () => {
   console.log(`Server is running on port ${port}\nhttp://localhost:${port}`);

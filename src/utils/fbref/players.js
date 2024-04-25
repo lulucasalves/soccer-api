@@ -159,7 +159,7 @@ async function players(rounds) {
             const vermelhoCell = cell.querySelector("td:nth-child(14)");
 
             const player = playerCell.textContent.replaceAll(" ", "");
-            const position = parseInt(positionCell.textContent);
+            const position = positionCell.textContent;
             const gols = parseInt(golsCell.textContent);
             const minutes = parseInt(minutesCell.textContent);
             const assistencias = parseInt(assistenciasCell.textContent);
@@ -330,7 +330,7 @@ async function players(rounds) {
 
             const player = playerCell.textContent.replaceAll(" ", "");
             const gols = parseInt(golsCell.textContent);
-            const position = parseInt(positionCell.textContent);
+            const position = positionCell.textContent;
             const minutes = parseInt(minutesCell.textContent);
             const assistencias = parseInt(assistenciasCell.textContent);
             const penalts =

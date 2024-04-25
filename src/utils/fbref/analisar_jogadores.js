@@ -8,7 +8,7 @@ function removerAcentosEspacos(nome) {
   return nome.toLowerCase();
 }
 
-function analisarJogadores(jogadores, allPlayers, orderBy) {
+function analisarJogadores(jogadores, positions, times, orderBy) {
   let players = [];
 
   for (const times of jogadores) {
@@ -101,7 +101,6 @@ function analisarJogadores(jogadores, allPlayers, orderBy) {
         statistics.penalts * 0.25 +
         statistics.chutes * 0.1 -
         statistics.amarelo * 0.2 -
-        statistics.fouls * 0.05 -
         statistics.vermelho * 0.3 +
         statistics.defesas * 0.16 +
         statistics.crosses * 0.01 +
@@ -123,7 +122,7 @@ function analisarJogadores(jogadores, allPlayers, orderBy) {
     fouls: 0,
     desarmes: 0,
     crosses: 0,
-    pontuacao: 0
+    pontuacao: 0,
   };
 
   for (const key of Object.keys(mediaGeral)) {
@@ -149,8 +148,9 @@ function analisarJogadores(jogadores, allPlayers, orderBy) {
   return {
     playerAnalisis: playerAnalisis
       .sort((a, b) => a[orderBy] - b[orderBy])
+      .filter((val) => (times.length ? times.includes(val.time) : val))
       .filter((val) =>
-        allPlayers.length ? allPlayers.includes(val.player) : val
+        positions.length ? positions.includes(val.position) : val
       ),
     mediaGeral,
   };

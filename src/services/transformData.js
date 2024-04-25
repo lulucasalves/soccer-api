@@ -10,8 +10,14 @@ const { proximosjogos } = require("../utils/flashScore/proximos_jogos");
 const { analisarJogadores } = require("../utils/fbref/analisar_jogadores");
 const fs = require("fs");
 
-async function transformData(rounds, allPlayers = [], orderBy = "desarmes") {
+async function transformData(
+  rounds,
+  positions = [],
+  timesPlayers = [],
+  orderBy = "desarmes"
+) {
   let teamResponse = [];
+
   let arbitros = arbitrosFS(times, 10);
 
   for (const team of times) {
@@ -31,7 +37,12 @@ async function transformData(rounds, allPlayers = [], orderBy = "desarmes") {
     proximos_jogos: proximosJogos,
   };
 
-  const analiseJogadores = analisarJogadores(jogadores, allPlayers, orderBy);
+  const analiseJogadores = analisarJogadores(
+    jogadores,
+    positions,
+    timesPlayers,
+    orderBy
+  );
 
   analiseFunction(proximosJogos);
   fs.writeFileSync(
